@@ -1,0 +1,58 @@
+# Dependencies
+node_modules/
+
+# Next.js build
+.next/
+out/
+
+# Production build
+build/
+dist/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Testing
+coverage/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Database (local)
+*.db
+*.sqlite
+
+# Models and datasets (large files)
+/models/
+/datasets/
+/exports/
+/temp/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/

@@ -1,0 +1,66 @@
+# ===========================================
+# YOLO Hub 配置文件
+# ===========================================
+
+server:
+  host: "0.0.0.0"
+  port: 8000
+  cors_origins:
+    - "http://localhost:3000"
+
+storage:
+  model_path: "./models"
+  dataset_path: "./datasets"
+  export_path: "./exports"
+  temp_path: "./temp"
+
+upload:
+  max_size_mb: 100
+  allowed_extensions:
+    - ".jpg"
+    - ".jpeg"
+    - ".png"
+    - ".webp"
+
+training:
+  max_concurrent: 1
+  queue_limit: 10
+  default_epochs: 100
+  checkpoint_interval: 10
+
+  gpu_batch_size_map:
+    4: 8
+    8: 16
+    12: 32
+    16: 64
+    24: 128
+
+  yolo_versions:
+    - name: "YOLO26"
+      pretrained: "yolo26n.pt"
+    - name: "YOLO11"
+      pretrained: "yolo11n.pt"
+    - name: "YOLOv8"
+      pretrained: "yolov8n.pt"
+    - name: "YOLOv5"
+      pretrained: "yolov5n.pt"
+
+export:
+  default_imgsz: 640
+  default_half: false
+  onnx_opset: 12
+  verify_after_export: true
+
+cleanup:
+  enabled: true
+  interval_hours: 24
+  task_retention_days: 30
+
+logging:
+  level: "INFO"
+  file: "./logs/yolo-hub.log"
+
+websocket:
+  reconnect_interval_ms: 3000
+  max_reconnect_attempts: 10
+  heartbeat_interval_ms: 30000
